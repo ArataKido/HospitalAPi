@@ -1,14 +1,14 @@
 
 using System.Security.Claims;
-using accounts.DTO;
-using accounts.Entity;
-using accounts.Services;
-using accounts.Utils.Mappers;
+using Accounts.DTO;
+using Accounts.Entity;
+using Accounts.Services;
+using Accounts.Utils.Mappers;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace accounts.Controllers;
+namespace Accounts.Controllers;
 
 [Route("api/accounts")]
 [ApiController]
@@ -29,8 +29,8 @@ public class AccountsController : ControllerBase
     [HttpGet]
     [Authorize(Roles = "admin")]
     /// <summary>
-/// Admin only.
-/// </summary>
+    /// Admin only.
+    /// </summary>
     public async Task<IActionResult> GetAccounts(int from = 0, int count = 100)
     {
         IList<AccountResponseDTO> accounts = await _accountService.GetAllAsync(from, count);

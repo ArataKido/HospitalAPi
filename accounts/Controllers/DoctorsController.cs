@@ -1,10 +1,10 @@
-using accounts.DTO;
-using accounts.Entity;
-using accounts.Services;
+using Accounts.DTO;
+using Accounts.Entity;
+using Accounts.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace accounts.Controllers;
+namespace Accounts.Controllers;
 
 [Route("api/doctors")]
 [ApiController]

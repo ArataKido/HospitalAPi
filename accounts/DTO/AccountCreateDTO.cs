@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace accounts.DTO;
+namespace Accounts.DTO;
 
 
 public class AccountCreateDTO

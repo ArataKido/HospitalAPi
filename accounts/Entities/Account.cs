@@ -2,7 +2,7 @@ using System.ComponentModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace accounts.Entity;
+namespace Accounts.Entity;
 
 [Index(nameof(Id), IsUnique = true)]
 [Index(nameof(UserName), IsUnique = true)]

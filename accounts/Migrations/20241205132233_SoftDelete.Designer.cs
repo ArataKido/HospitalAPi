@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using accounts.Context;
+using Accounts.Context;
 
 #nullable disable
 
-namespace accounts.Migrations
+namespace Accounts.Migrations
 {
     [DbContext(typeof(PostgresDbContext))]
     [Migration("20241205132233_SoftDelete")]

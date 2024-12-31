@@ -1,11 +1,10 @@
 
 
-using accounts.DTO;
-using accounts.Entity;
-using accounts.Services;
+using Accounts.DTO;
+using Accounts.Entity;
 using AutoMapper;
 
-namespace accounts.Utils.Mappers;
+namespace Accounts.Utils.Mappers;
 public class AccountMappingProfile : Profile
 {
 

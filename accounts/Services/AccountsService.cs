@@ -1,12 +1,12 @@
-using accounts.Context;
-using accounts.DTO;
-using accounts.Entity;
+using Accounts.Context;
+using Accounts.DTO;
+using Accounts.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.OpenApi.Any;
 
-namespace accounts.Services;
+namespace Accounts.Services;
 public class AccountService
 {
     private readonly PostgresDbContext _postgresDbContext;

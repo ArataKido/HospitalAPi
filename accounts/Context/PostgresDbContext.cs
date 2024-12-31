@@ -1,10 +1,10 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using accounts.Entity;
+using Accounts.Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
-namespace accounts.Context;
+namespace Accounts.Context;
 
 public class PostgresDbContext : DbContext
 {

@@ -1,5 +1,5 @@
 
-namespace accounts.Entity;
+namespace Accounts.Entity;
 
 public class AccountRole
 {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace accounts.Migrations
+namespace Accounts.Migrations
 {
     /// <inheritdoc />
     public partial class SoftDelete : Migration

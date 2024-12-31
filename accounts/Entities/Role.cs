@@ -1,7 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace accounts.Entity;
+namespace Accounts.Entity;
 [Index(nameof(Id), IsUnique = true)]
 public class Role
 {

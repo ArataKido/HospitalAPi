@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace accounts;
+namespace Accounts;
 
 public static class AuthorizationPolicies
 {

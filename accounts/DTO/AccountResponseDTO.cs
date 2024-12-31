@@ -1,8 +1,8 @@
 
 using System.ComponentModel;
-using accounts.Migrations;
+using Accounts.Migrations;
 
-namespace accounts.DTO;
+namespace Accounts.DTO;
 
 public class AccountResponseDTO
 {

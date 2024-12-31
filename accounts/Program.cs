@@ -1,6 +1,6 @@
-using accounts.Context;
-using accounts.Services;
-using accounts.Utils.Mappers;
+using Accounts.Context;
+using Accounts.Services;
+using Accounts.Utils.Mappers;
 
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -41,7 +41,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddAutoMapper(typeof(AccountMappingProfile));
 
-builder.Services.AddSingleton<PostgresDbContext>();
+builder.Services.AddDbContext<PostgresDbContext>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<AuthenticationService>();
 builder.Services.AddScoped<PasswordService>();

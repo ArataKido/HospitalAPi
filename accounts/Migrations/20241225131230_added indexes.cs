@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace accounts.Migrations
+namespace Accounts.Migrations
 {
     /// <inheritdoc />
     public partial class addedindexes : Migration

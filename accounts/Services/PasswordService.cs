@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace accounts.Services;
+namespace Accounts.Services;
 
 public class PasswordService
 {

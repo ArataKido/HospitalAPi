@@ -1,10 +1,10 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using accounts.Entity;
+using Accounts.Entity;
 using Microsoft.IdentityModel.Tokens;
 
-namespace accounts.Services;
+namespace Accounts.Services;
 
 public class AuthenticationService
 {

@@ -1,12 +1,12 @@
 using System.Runtime.InteropServices;
-using accounts.DTO;
-using accounts.Entity;
-using accounts.Services;
+using Accounts.DTO;
+using Accounts.Entity;
+using Accounts.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace accounts.Controllers;
+namespace Accounts.Controllers;
 
 [Route("api/authentication")]
 [ApiController]
