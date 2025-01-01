@@ -28,6 +28,9 @@ public class AccountsController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "admin")]
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(IList<AccountResponseDTO>))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
     /// <summary>
     /// Admin only.
     /// </summary>
@@ -39,9 +42,12 @@ public class AccountsController : ControllerBase
 
     [HttpPost]
     [Authorize(Roles = "admin")]
+    [ProducesResponseType(statusCode:StatusCodes.Status201Created, type:typeof(AccountCreateDTO))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
     /// <summary>
-/// Admin only.
-/// </summary>
+    /// Admin only.
+    /// </summary>
     public async Task<IActionResult> CreateAccount(AccountCreateDTO accountCreateDTO)
     {
         if(await _accountService.GetAccountByUserName(accountCreateDTO.UserName) is not null)
@@ -66,9 +72,13 @@ public class AccountsController : ControllerBase
 
     [HttpPut("{id}")]
     [Authorize(Roles = "admin")]
-/// <summary>
-/// Admin only.
-/// </summary>
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(AccountUpdateDTO))]
+    [ProducesResponseType(statusCode:StatusCodes.Status400BadRequest, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
+    /// <summary>
+    /// Admin only.
+    /// </summary>
     public async Task<IActionResult> UpdateAccount(int id, AccountUpdateDTO accountUpdateDTO)
     {
         var account = await _accountService.GetAccountByIdAsync(id);
@@ -97,9 +107,12 @@ public class AccountsController : ControllerBase
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "admin")]
+    [ProducesResponseType(statusCode:StatusCodes.Status404NotFound, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
     /// <summary>
-/// Admin only.
-/// </summary>
+    /// Admin only.
+    /// </summary>
 
     public async Task<IActionResult> DeleteAccount(int id)
     {
@@ -114,6 +127,10 @@ public class AccountsController : ControllerBase
 
     [HttpPut("Update")]
     [Authorize]
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(AccountPrivateUpdateDTO))]
+    [ProducesResponseType(statusCode:StatusCodes.Status400BadRequest, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
+    [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
     public async Task<IActionResult> UpdateAccount(AccountPrivateUpdateDTO accountUpdateDTO)
     {
         var account = await _accountService.GetAccountByIdAsync(int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)));
@@ -136,6 +153,8 @@ public class AccountsController : ControllerBase
 
     [HttpGet("Me")]
     [Authorize]
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(AccountResponseDTO))]
+    [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
     public async Task<IActionResult> GetAccount()
     {
         var account = await _accountService.GetAccountByIdAsync(int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)));

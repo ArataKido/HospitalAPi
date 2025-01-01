@@ -20,6 +20,8 @@ public class DoctorsController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(IList<AccountResponseDTO>))]
+    [ProducesResponseType(statusCode:StatusCodes.Status404NotFound, type:typeof(void))]
     public async Task<IActionResult> GetAllDoctors(string? nameFilter, int from = 0, int count = 100)
     {
         return Ok(await _accountService.GetAccountsByRoleAsync(
@@ -29,6 +31,8 @@ public class DoctorsController : ControllerBase
                                                         count: count));
     }
     [HttpGet("{id}")]
+    [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(AccountResponseDTO))]
+    [ProducesResponseType(statusCode:StatusCodes.Status404NotFound, type:typeof(void))]
     public async Task<IActionResult> GetDoctor(int id)
     {
         var doctor = await _accountService.GetAccountByRoleAsync(id: id, roleName: "doctor");
