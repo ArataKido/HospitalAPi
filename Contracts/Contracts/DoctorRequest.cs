@@ -1,4 +1,4 @@
-
+﻿
 namespace Contracts.Models;
 
 public class DoctorRequest

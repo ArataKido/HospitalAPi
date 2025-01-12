@@ -1,7 +1,7 @@
-
+﻿
 namespace Contracts.Models;
 
 public class DoctorResponse
 {
-    public bool Exists {get; set;}
+    public bool Exists { get; set; }
 }
