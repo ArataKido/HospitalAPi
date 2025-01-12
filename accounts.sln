@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "accounts", "accounts\accounts.csproj", "{3E56AADB-BC24-4D16-BDF8-FC9D6DF004A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "accounts", "accounts\accounts.csproj", "{3E56AADB-BC24-4D16-BDF8-FC9D6DF004A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hospitals", "hospitals\hospitals.csproj", "{F8D5CD81-ED16-4F92-BA4D-36F118B2D10F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hospitals", "hospitals\hospitals.csproj", "{F8D5CD81-ED16-4F92-BA4D-36F118B2D10F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "timetables", "timetables\timetables.csproj", "{B12294C5-5C59-4BA5-9114-EB580A762E28}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Contracts", "Contracts\Contracts.shproj", "{80075725-972F-4C40-83C4-15BFDD6BE0A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,20 @@ Global
 		{F8D5CD81-ED16-4F92-BA4D-36F118B2D10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8D5CD81-ED16-4F92-BA4D-36F118B2D10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8D5CD81-ED16-4F92-BA4D-36F118B2D10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12294C5-5C59-4BA5-9114-EB580A762E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12294C5-5C59-4BA5-9114-EB580A762E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12294C5-5C59-4BA5-9114-EB580A762E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12294C5-5C59-4BA5-9114-EB580A762E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C42C92F-FB38-444C-AC19-3CCAA30F2176}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Contracts\Contracts.projitems*{3e56aadb-bc24-4d16-bdf8-fc9d6df004a3}*SharedItemsImports = 5
+		Contracts\Contracts.projitems*{80075725-972f-4c40-83c4-15bfdd6be0a7}*SharedItemsImports = 13
+		Contracts\Contracts.projitems*{b12294c5-5c59-4ba5-9114-eb580a762e28}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
