@@ -1,5 +1,6 @@
-
+﻿
 using FluentValidation;
+
 using Timetables.Core.Entity;
 
 namespace Timetables.Validators;

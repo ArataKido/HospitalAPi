@@ -1,5 +1,6 @@
-
+﻿
 using Contracts.Models;
+
 using MassTransit;
 
 namespace Timetables.Core.Settings;

@@ -1,4 +1,5 @@
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
+
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Timetables.Utils.Extensions;

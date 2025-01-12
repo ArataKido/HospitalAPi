@@ -1,4 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+
 using Timetables.Core.Context;
 using Timetables.Core.Entity;
 
@@ -74,7 +75,7 @@ public class TimeTableService : ITimeTableService
         // Check if the doctor has any overlapping appointments
         var existingAppointments = await _context.TimeTables
             .Where(t => t.DoctorId == doctorId)
-            .Where(t => (t.From <= from && t.To > from) || 
+            .Where(t => (t.From <= from && t.To > from) ||
                     (t.From < to && t.To >= to) ||
                     (t.From >= from && t.To <= to))
             .AnyAsync();

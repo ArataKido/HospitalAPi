@@ -1,4 +1,4 @@
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace Timetables.Core.Settings;
 public static class SwaggerConfiguration

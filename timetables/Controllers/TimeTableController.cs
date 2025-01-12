@@ -1,21 +1,21 @@
-using AutoMapper;
+﻿using AutoMapper;
+
 using FluentValidation;
-using MassTransit;
+
 using Microsoft.AspNetCore.Mvc;
 
-using Contracts;
-using Timetables.DTO;
+using Timetables.Core;
 using Timetables.Core.Entity;
+using Timetables.DTO;
 using Timetables.Services;
 using Timetables.Utils.Extensions;
-using Timetables.Core;
 
 namespace Timetables.Controllers;
 
 [ApiController]
 [Route("/api/Timetable")]
 [Produces("application/json")]
-public class TimeTableController:ControllerBase
+public class TimeTableController : ControllerBase
 {
     private readonly ITimeTableService _timeTableService;
     private readonly IMapper _mapper;
@@ -41,7 +41,7 @@ public class TimeTableController:ControllerBase
     {
         var timeTable = await _timeTableService.GetTimeTableById(id);
 
-        if(timeTable is not null) return Ok(timeTable);
+        if (timeTable is not null) return Ok(timeTable);
         return NotFound();
     }
 
@@ -50,11 +50,10 @@ public class TimeTableController:ControllerBase
     {
         TimeTable timeTable = _mapper.Map<TimeTable>(timeTableCreateUpdateDTO);
 
-        if(!await _microserviceClient.DoctorExists(timeTable.DoctorId)) 
+        if (!await _microserviceClient.DoctorExists(timeTable.DoctorId))
         {
-            return BadRequest($"Doctor with {timeTable.DoctorId} does not exits" );
+            return BadRequest($"Doctor with {timeTable.DoctorId} does not exits");
         }
-
 
         var timeTableValidator = await _validator.ValidateAsync(timeTable);
 
@@ -72,8 +71,13 @@ public class TimeTableController:ControllerBase
     [HttpPut("{id}/")]
     public async Task<IActionResult> UpdateTimeTable(int id, TimeTableCreateUpdateDTO timeTableCreateUpdateDTO)
     {
-        TimeTable timeTable = await _timeTableService.GetTimeTableById(id:id);
+        TimeTable timeTable = await _timeTableService.GetTimeTableById(id: id);
         _mapper.Map(timeTableCreateUpdateDTO, timeTable);
+
+        if (!await _microserviceClient.DoctorExists(timeTable.DoctorId))
+        {
+            return BadRequest($"Doctor with {timeTable.DoctorId} does not exits");
+        }
 
         var timeTableValidator = await _validator.ValidateAsync(timeTable);
 
@@ -94,18 +98,22 @@ public class TimeTableController:ControllerBase
         await _timeTableService.DeleteTimeTable(id);
         return Ok();
     }
-    
+
     [HttpGet("Doctor/{doctorId}")]
     public async Task<IActionResult> GetDoctorTimeTable(int doctorId)
     {
         var timeTable = await _timeTableService.GetDoctorTimeTables(doctorId);
-        if(timeTable.Count != 0) return Ok(timeTable);
+        if (timeTable.Count != 0) return Ok(timeTable);
         return NotFound();
     }
-    
+
     [HttpDelete("Doctor/{doctorId}")]
     public async Task<IActionResult> DeleteDoctorTimeTable(int doctorId)
     {
+        if (!await _microserviceClient.DoctorExists(doctorId))
+        {
+            return BadRequest($"Doctor with {doctorId} does not exits");
+        }
         await _timeTableService.DeleteDoctorTimeTables(doctorId);
         return Ok();
     }
@@ -114,10 +122,10 @@ public class TimeTableController:ControllerBase
     public async Task<IActionResult> GetHospitalTimeTable(int hospitalId)
     {
         var hospital = await _timeTableService.GetHospitalTimeTables(hospitalId);
-        if(hospital.Count != 0) return Ok(hospital);
+        if (hospital.Count != 0) return Ok(hospital);
         return NotFound();
     }
-    
+
     [HttpDelete("Hospital/{hospitalId}")]
     public async Task<IActionResult> DeleteHospitalTimeTable(int hospitalId)
     {

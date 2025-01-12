@@ -1,10 +1,11 @@
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+
 using Timetables.Core.Context;
 using Timetables.Core.Entity;
 using Timetables.Services;
-using Timetables.Validators;
 using Timetables.Utils.Mappers;
+using Timetables.Validators;
 
 namespace Timetables.Core.Settings;
 public static class ServiceConfiguration

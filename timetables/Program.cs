@@ -1,4 +1,4 @@
-using Timetables.Core.Settings;
+﻿using Timetables.Core.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 

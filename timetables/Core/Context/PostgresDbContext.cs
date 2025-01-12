@@ -1,5 +1,7 @@
-using System;
+﻿using System;
+
 using Microsoft.EntityFrameworkCore;
+
 using Timetables.Core.Entity;
 
 namespace Timetables.Core.Context;
