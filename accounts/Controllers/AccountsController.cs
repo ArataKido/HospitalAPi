@@ -41,7 +41,7 @@ public class AccountsController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "admin")]
     [ProducesResponseType(statusCode:StatusCodes.Status201Created, type:typeof(AccountCreateDTO))]
     [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
     [ProducesResponseType(statusCode:StatusCodes.Status403Forbidden, type:typeof(void))]
@@ -71,7 +71,7 @@ public class AccountsController : ControllerBase
 
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "admin")]
+    // [Authorize(Roles = "admin")]
     [ProducesResponseType(statusCode:StatusCodes.Status200OK, type:typeof(AccountUpdateDTO))]
     [ProducesResponseType(statusCode:StatusCodes.Status400BadRequest, type:typeof(void))]
     [ProducesResponseType(statusCode:StatusCodes.Status401Unauthorized, type:typeof(void))]
@@ -96,6 +96,7 @@ public class AccountsController : ControllerBase
         {
             accountUpdateDTO.Password = _passwordService.HashPassword(accountUpdateDTO.Password);
         }
+        //TODO: this map leads to the bug. after the if block, dto maps with account, thus changing the account password to uncrypted password
         _mapper.Map(accountUpdateDTO, account);
 
         await _accountService.UpdateAccountAsync(account);

@@ -1,10 +1,8 @@
 using Accounts.Context;
 using Accounts.DTO;
 using Accounts.Entity;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using Microsoft.OpenApi.Any;
+
 
 namespace Accounts.Services;
 public class AccountService
@@ -154,6 +152,14 @@ public class AccountService
                                             .ThenInclude(r => r.Role)
                                             .FirstOrDefaultAsync();
         return account;
+    }
+
+    public async Task<bool> AccountWithRoleExists(int id, string roleName)
+    {
+        return await _postgresDbContext.AccountRoles
+                                    .Include(a => a.Account)
+                                    .Include(r => r.Role)
+                                    .AnyAsync(a => a.AccountId == id && a.Role.Name == roleName); 
     }
 
 
